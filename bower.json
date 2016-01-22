@@ -1,0 +1,19 @@
+{
+  "name": "superadmin",
+  "version": "0.0.1",
+  "authors": [
+    "Koen Betsens <koen@cloudoki.com>"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "requirejs": "*",
+    "underscore": "*",
+    "backbone": "*",
+    "mustache": "*",
+    "bootstrap": "*",
+    "backgrid": "*"
+  },
+  "resolutions": {
+    "underscore": ">=1.7.0"
+  }
+}
