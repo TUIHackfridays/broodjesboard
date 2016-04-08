@@ -1,36 +1,33 @@
-/**
- * Require dependencies
- */
 require.config(
 {
-	baseUrl: 'js/',
-	paths:
-	{
-		'jquery': 'lib/jquery/jquery',
-		'underscore': 'lib/underscore/underscore',
-		'backbone': 'lib/backbone/backbone',
-		'bootstrap': 'lib/bootstrap/dist/js/bootstrap',
-		'mustache': 'lib/mustache/mustache',
-		'backgrid': 'lib/backgrid/lib/backgrid'
-	},
+	baseUrl : '/js/',
 	shim:
 	{
-		'bootstrap': {
+		bootstrap: {
 			deps: ['jquery'],
 			exports: 'bootstrap'
 		},
-		'underscore': {
-			exports: '_'
-		},
-		'backbone': {
-			deps: ['underscore', 'jquery', 'mustache'],
-			exports: 'backbone'
-		},
-		'backgrid': {
+		backgrid: {
 			deps: ['jquery','backbone','underscore'],
 			exports: 'Backgrid'
+		},
+		chosen: {
+			deps: ['jquery'],
+			exports: 'jQuery.fn.chosen'
 		}
-	}
+	},
+	paths:
+	{
+		jquery:		'/vendor/jquery/dist/jquery.min',
+		backbone:	'/vendor/backbone/backbone-min',
+		requirejs:	'/vendor/requirejs/require',
+		underscore:	'/vendor/underscore/underscore-min',
+		mustache:	'/vendor/mustache.js/mustache',
+		bootstrap:	'/vendor/bootstrap/dist/js/bootstrap.min',
+		backgrid:	'/vendor/backgrid/lib/backgrid.min',
+		chosen: '/vendor/chosen/chosen.jquery'
+	},
+	urlArgs: "bust=" +  (new Date()).getTime()
 });
 
 /**
@@ -43,15 +40,7 @@ require(
 	function(Backbone, bootstrap, sam)
 	{
 		// Start
-		Superadmin = sam.init();
+		Superadmin = sam.init ();
 		Superadmin.activate ();
 	}
 );
-
-/**
- * Origin function
- */
-var origin = function ()
-{
-	return (window.location.origin)? window.location.origin : window.location.protocol + "//" + window.location.hostname;
-}

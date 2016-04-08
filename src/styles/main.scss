@@ -1,0 +1,28 @@
+/**
+ *	Define (and override) Variables
+ */
+@import '../vendor/corporify-ui-package/src/css/variables';
+
+
+/**
+ *	Import vendor dependencies
+ */
+@import '../vendor/bootstrap/dist/css/bootstrap.min';
+@import '../vendor/backgrid/lib/backgrid.min.css';
+@import '../vendor/corporify-ui-package/dist/css/main';
+@import '../vendor/chosen/chosen';
+
+
+/**
+ *	Import font and icon dependencies
+ *	Import style files
+ */
+@import '_fonts';
+@import '_navigation';
+@import '_cover';
+@import '_style';
+@import '_navbar_collapse';
+
+body {
+  overflow: auto !important;
+}

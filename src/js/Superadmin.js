@@ -1,16 +1,19 @@
 define(
-	['backbone', 'Session', 'Router', 'config'],
-	function (Backbone, Session, Router, config)
+	['backbone', 'Session', 'Router', 'config', 'Views/Navigation'],
+	function (Backbone, Session, Router, config, NavigationView)
 	{
 		var Superadmin = {
+
+			passthrough: null,	// Ignores token if not null. "the-Golden-Key-28chars-token"
 
 			init : function ()
 			{
 				// Authentication
-				Session.authenticate ();
+				Session.authenticate (this.passthrough);
 
 				// Set config
 				this.config = config;
+				this.config.url = config.apiurl + config.apiversion + '/';
 
 				return this;
 			},
@@ -20,36 +23,17 @@ define(
 				// First load essential user data
 				Session.loadEssentialData (function ()
 				{
-					// Load navigation
-					// this.navigation = new NavigationView (this);
-					// $('#sidebar').html(this.navigation.render().el);
-
 					// And then rout the router.
 					this.router = new Router ();
 
+					// Load navigation
+					this.navigation = new NavigationView (this);
+					$('nav.navbar').html(this.navigation.render().el);
+
 					Backbone.history.start();
-				});
-			},
 
-			// render: function ()
-			// {
-			// 	// Do some rendering
-			// 	$('#page').html (this.view.render ().el);
-
-			// 	// this.navigation.handleSidebarMenu();
-			// },
-
-			// setView: function (view)
-			// {
-			// 	// Remove the old
-			// 	if (this.view) this.view.remove();
-
-			// 	Session.trigger('destroy:view');
-
-			// 	this.view = view;
-
-			// 	this.render();
-			// },
+				}.bind (this));
+			}
 		};
 
 		/*
@@ -68,8 +52,6 @@ define(
 			return Backbone.$.ajax.apply(Backbone.$, arguments);
 		};
 
-    	return Superadmin;
+    return Superadmin;
 	}
 );
-
-

@@ -1,19 +1,28 @@
 {
-  "name": "broodjesboard",
-  "version": "0.0.1",
+  "name": "tui-broodjesboard",
+  "version": "1.0.0",
+  "homepage": "www.tuibroodjesboard.com",
   "authors": [
-    "Koen Betsens <koen@cloudoki.com>"
+    "Rui Molefas <rui@cloudoki.com>"
   ],
-  "dependencies": {
-    "jquery": "*",
-    "requirejs": "*",
-    "underscore": "*",
-    "backbone": "*",
-    "mustache": "*",
-    "bootstrap": "*",
-    "backgrid": "*"
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "backbone": "~1.2.3",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "mustache.js": "~2.1.3",
+    "requirejs": "~2.1.20",
+    "underscore": "~1.8.3",
+    "backgrid": "~0.3.5",
+    "chosen": "~1.5.1",
+    "corporify-ui-package": "https://github.com/Cloudoki/corporify-ui-package.git"
   },
   "resolutions": {
-    "underscore": ">=1.7.0"
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.3"
   }
 }
