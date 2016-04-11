@@ -1,5 +1,5 @@
 src/vendor
-
 node_modules
-#dist
-staging
+npm-debug.log
+src/js/config.js
+
